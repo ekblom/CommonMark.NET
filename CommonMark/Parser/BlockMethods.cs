@@ -377,6 +377,7 @@ namespace CommonMark.Parser
 					pos++;
 					if (ln.Length > pos && ln[pos] == '[')
 						isTaskList = true;
+					pos--;
 				}
                 data = new ListData();
                 data.BulletChar = c;
@@ -669,9 +670,6 @@ namespace CommonMark.Parser
 
             last_matched_container = container;
 
-			// check to see if we've hit 2nd blank line, break out of list:
-			if (blank && container.IsLastLineBlank)
-				BreakOutOfLists(ref container, line, settings);
             var maybeLazy = cur.Tag == BlockTag.Paragraph;
 
             // unless last matched container is code block, try new container starts:
