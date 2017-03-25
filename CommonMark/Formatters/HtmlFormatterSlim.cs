@@ -23,11 +23,11 @@ namespace CommonMark.Formatters
         private static readonly bool[] UrlSafeCharacters = {
             false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,
             false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,
-            false, true,  false, true,  true,  true,  false, false, true,  true,  true,  true,  true,  true,  true,  true, 
-            true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  false, true,  false, true, 
-            true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true, 
-            true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  false, false, false, false, true, 
-            false, true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true, 
+            false, true,  false, true,  true,  true,  false, false, true,  true,  true,  true,  true,  true,  true,  true,
+            true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  false, true,  false, true,
+            true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,
+            true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  false, false, false, false, true,
+            false, true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,
             true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  false, false, false, false, false
         };
 
@@ -114,7 +114,7 @@ namespace CommonMark.Formatters
                 buffer = target.Buffer = new char[input.Length];
             else
                 buffer = target.Buffer;
-                 
+
             input.Source.CopyTo(input.StartIndex, buffer, 0, input.Length);
 
             while ((pos = input.Source.IndexOfAny(EscapeHtmlCharacters, lastPos, input.Length - lastPos + input.StartIndex)) != -1)
@@ -188,7 +188,7 @@ namespace CommonMark.Formatters
                 target.Write(buffer, lastPos - part.StartIndex, part.Length - lastPos + part.StartIndex);
             }
         }
-        
+
         public static void BlocksToHtml(TextWriter writer, Block block, CommonMarkSettings settings)
         {
             var wrapper = new HtmlTextWriter(writer);
@@ -367,7 +367,15 @@ namespace CommonMark.Formatters
                         if (trackPositions) PrintPosition(writer, block);
                         writer.Write('>');
 
-                        stackLiteral = "</li>";
+						if (block.ListData != null && block.ListData.ListType == ListType.TaskList)
+						{
+							if(!block.TaskListItemIsChecked)
+								writer.WriteConstant("<input disabled=\"\" type=\"checkbox\" />");
+							else
+								writer.WriteConstant("<input checked=\"\" disabled=\"\" type=\"checkbox\" />");
+						}
+
+						stackLiteral = "</li>";
                         stackTight = tight;
                         visitChildren = true;
                         break;
@@ -376,7 +384,7 @@ namespace CommonMark.Formatters
                         // make sure a list starts at the beginning of the line:
                         writer.EnsureLine();
                         var data = block.ListData;
-                        writer.WriteConstant(data.ListType == ListType.Bullet ? "<ul" : "<ol");
+                        writer.WriteConstant((data.ListType == ListType.Bullet || data.ListType == ListType.TaskList) ? "<ul" : "<ol");
                         if (data.Start != 1)
                         {
                             writer.WriteConstant(" start=\"");
@@ -386,7 +394,7 @@ namespace CommonMark.Formatters
                         if (trackPositions) PrintPosition(writer, block);
                         writer.WriteLine('>');
 
-                        stackLiteral = data.ListType == ListType.Bullet ? "</ul>" : "</ol>";
+                        stackLiteral = (data.ListType == ListType.Bullet || data.ListType == ListType.TaskList) ? "</ul>" : "</ol>";
                         stackTight = data.IsTight;
                         visitChildren = true;
                         break;
@@ -503,7 +511,7 @@ namespace CommonMark.Formatters
         private static void InlinesToPlainText(HtmlTextWriter writer, Inline inline, Stack<InlineStackEntry> stack)
         {
             bool withinLink = false;
-            bool stackWithinLink = false; 
+            bool stackWithinLink = false;
             bool visitChildren;
             string stackLiteral = null;
             var origStackCount = stack.Count;
@@ -592,7 +600,7 @@ namespace CommonMark.Formatters
         }
 
         /// <summary>
-        /// Writes the inline list to the given writer as HTML code. 
+        /// Writes the inline list to the given writer as HTML code.
         /// </summary>
         private static void InlinesToHtml(HtmlTextWriter writer, Inline inline, CommonMarkSettings settings, Stack<InlineStackEntry> stack)
         {

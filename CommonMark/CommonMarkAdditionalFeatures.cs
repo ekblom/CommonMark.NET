@@ -19,26 +19,38 @@ namespace CommonMark
         /// The parser will recognize syntax <c>~~foo~~</c> that will be rendered as <c>&lt;del&gt;foo&lt;/del&gt;</c>.
         /// </summary>
         StrikethroughTilde = 1,
-		
+
 		/// <summary>
 		/// The parser will recognize syntax <c>[foo]</c>, which will be encoded in a separate AST node that the host application may evaluate as desired.
         /// </summary>
         PlaceholderBracket = 2,
-		
-        /// <summary>
-        /// The parser will recognize
-        /// 
-        /// First Header  | Second Header
-        /// ------------- | -------------
-        /// Content Cell  | Content Cell
-        /// Content Cell  | Content Cell
-        /// 
-        /// style tables.
-        /// 
-        /// Refer to https://help.github.com/articles/organizing-information-with-tables/ for more examples
-        /// </summary>
-        GithubStyleTables = 3,
-        
+
+		/// <summary>
+		/// The parser will recognize
+		///
+		/// First Header  | Second Header
+		/// ------------- | -------------
+		/// Content Cell  | Content Cell
+		/// Content Cell  | Content Cell
+		///
+		/// style tables.
+		///
+		/// Refer to https://github.github.com/gfm/#tables-extension- for more examples
+		/// </summary>
+		GithubStyleTables = 4,
+
+		/// <summary>
+		/// The parser will recognize
+		///
+		/// - [ ] First list item
+		/// - [x] Checked list item
+		///
+		/// as TaskList.
+		///
+		/// Refer to https://github.github.com/gfm/#task-list-items-extension- for more examples
+		/// </summary>
+		GithubStyleTaskList = 8,
+
 		/// <summary>
         /// All additional features are enabled.
         /// </summary>

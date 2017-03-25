@@ -73,5 +73,37 @@ namespace CommonMark.Tests
         {
             Helpers.ExecuteTest("+\n+", "<ul>\n<li></li>\n<li></li>\n</ul>");
         }
+
+        [TestMethod]
+        [TestCategory("Container blocks - Task List items")]
+        public void Example269()
+        {
+			string test = @"- [ ] foo
+- [x] bar";
+			string expected = @"<ul>
+<li><input disabled="""" type=""checkbox"" /> foo</li>
+<li><input checked="""" disabled="""" type=""checkbox"" /> bar</li>
+</ul>";
+            Helpers.ExecuteTest(test, expected);
+        }
+
+        [TestMethod]
+        [TestCategory("Container blocks - Task List items")]
+        public void Example270()
+        {
+			string test = @"- [x] foo
+    - [ ] bar
+    - [x] baz
+- [ ] bim";
+			string expected = @"<ul>
+<li><input checked="""" disabled="""" type=""checkbox"" /> foo
+<ul>
+<li><input disabled="""" type=""checkbox"" /> bar</li>
+<li><input checked="""" disabled="""" type=""checkbox"" /> baz</li>
+</ul></li>
+<li><input disabled="""" type=""checkbox"" /> bim</li>
+</ul>";
+            Helpers.ExecuteTest(test, expected);
+        }
     }
 }

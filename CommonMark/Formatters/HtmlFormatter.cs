@@ -163,7 +163,15 @@ namespace CommonMark.Formatters
                         Write("<li");
                         if (Settings.TrackSourcePosition) WritePositionAttribute(block);
                         Write('>');
-                    }
+
+						if (block.ListData != null && block.ListData.ListType == ListType.TaskList)
+						{
+							if (!block.TaskListItemIsChecked)
+								Write("<input disabled=\"\" type=\"checkbox\" />");
+							else
+								Write("<input checked=\"\" disabled=\"\" type=\"checkbox\" />");
+						}
+					}
 
                     if (isClosing)
                         WriteLine("</li>");
@@ -176,7 +184,7 @@ namespace CommonMark.Formatters
                     if (isOpening)
                     {
                         EnsureNewLine();
-                        Write(data.ListType == ListType.Bullet ? "<ul" : "<ol");
+                        Write((data.ListType == ListType.Bullet || data.ListType == ListType.TaskList) ? "<ul" : "<ol");
                         if (data.Start != 1)
                         {
                             Write(" start=\"");
@@ -191,7 +199,7 @@ namespace CommonMark.Formatters
 
                     if (isClosing)
                     {
-                        WriteLine(data.ListType == ListType.Bullet ? "</ul>" : "</ol>");
+                        WriteLine((data.ListType == ListType.Bullet || data.ListType == ListType.TaskList) ? "</ul>" : "</ol>");
                         RenderTightParagraphs.Pop();
                     }
 

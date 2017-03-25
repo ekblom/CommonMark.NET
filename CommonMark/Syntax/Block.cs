@@ -179,6 +179,11 @@ namespace CommonMark.Syntax
         /// </summary>
         public TableHeaderAlignment[] TableHeaderAlignments { get; set; }
 
+		/// <summary>
+		/// Gets or sets wether the current task list item has been marked as done or not.
+		/// </summary>
+		public bool TaskListItemIsChecked{ get; set; }
+
         /// <summary>
         /// Gets or sets the additional properties that apply to heading elements.
         /// </summary>

@@ -17,6 +17,11 @@ namespace CommonMark.Syntax
         /// <summary>
         /// The list is ordered and its items are numbered.
         /// </summary>
-        Ordered
-    }
+        Ordered,
+
+		/// <summary>
+		/// The list is unordered and ites items are represented with checkboxes
+		/// </summary>
+		TaskList
+	}
 }
