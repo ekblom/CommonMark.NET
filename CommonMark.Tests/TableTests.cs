@@ -113,9 +113,9 @@ Hello world
                 CommonMarkConverter.ProcessStage3(ast, str, WriteSettings);
                 html = str.ToString();
             }
-			string expected = "<p>Nope nope.</p>\r\n<table><thead><tr><th>First Header</th><th>Second Header</th></tr></thead><tbody><tr><td>Content Cell</td><td>Content Cell</td></tr><tr><td>Content Cell</td><td>Content Cell</td></tr><tr><td>Hello world</td><td></td></tr></tbody></table>";
+            string expected = "<p>Nope nope.</p>\r\n<table><thead><tr><th>First Header</th><th>Second Header</th></tr></thead><tbody><tr><td>Content Cell</td><td>Content Cell</td></tr><tr><td>Content Cell</td><td>Content Cell</td></tr><tr><td>Hello world</td><td></td></tr></tbody></table>";
 
-			Assert.AreEqual(expected, html);
+            Assert.AreEqual(expected, html);
 
             Assert.AreEqual(BlockTag.Paragraph, ast.FirstChild.Tag);
             Assert.AreEqual(BlockTag.Table, ast.FirstChild.NextSibling.Tag);
@@ -191,7 +191,7 @@ Hello world
         }
 
 
-		[TestMethod]
+        [TestMethod]
         public void Example189()
         {
             var markdown = @"| foo | bar |
@@ -209,7 +209,7 @@ Hello world
             Assert.AreEqual("<table><thead><tr><th>foo</th><th>bar</th></tr></thead><tbody><tr><td>baz</td><td>bim</td></tr></tbody></table>", html);
         }
 
-		[TestMethod]
+        [TestMethod]
         public void Example190()
         {
             var markdown = @"| abc | defghi |
@@ -227,7 +227,7 @@ bar | baz";
             Assert.AreEqual("<table><thead><tr><th align=\"center\">abc</th><th align=\"right\">defghi</th></tr></thead><tbody><tr><td align=\"center\">bar</td><td align=\"right\">baz</td></tr></tbody></table>", html);
         }
 
-		[TestMethod]
+        [TestMethod]
         public void Example191()
         {
             var markdown = @"| f\|oo  |
@@ -246,7 +246,7 @@ bar | baz";
             Assert.AreEqual("<table><thead><tr><th>f|oo</th></tr></thead><tbody><tr><td>b <code>|</code> az</td></tr><tr><td>b <strong>|</strong> im</td></tr></tbody></table>", html);
         }
 
-		[TestMethod]
+        [TestMethod]
         public void Example192()
         {
             var markdown = @"| abc | def |
@@ -263,16 +263,16 @@ bar | baz";
                 html = str.ToString();
             }
 
-			string expected = @"<table><thead><tr><th>abc</th><th>def</th></tr></thead><tbody><tr><td>bar</td><td>baz</td></tr></tbody></table>
+            string expected = @"<table><thead><tr><th>abc</th><th>def</th></tr></thead><tbody><tr><td>bar</td><td>baz</td></tr></tbody></table>
 <blockquote>
 <p>bar</p>
 </blockquote>
 ";
 
-			Assert.AreEqual(expected, html);
+            Assert.AreEqual(expected, html);
         }
 
-		[TestMethod]
+        [TestMethod]
         public void Example193()
         {
             var markdown = @"| abc | def |
@@ -291,36 +291,36 @@ bar";
                 html = str.ToString();
             }
 
-			string expected = @"<table><thead><tr><th>abc</th><th>def</th></tr></thead><tbody><tr><td>bar</td><td>baz</td></tr><tr><td>bar</td><td></td></tr></tbody></table>
+            string expected = @"<table><thead><tr><th>abc</th><th>def</th></tr></thead><tbody><tr><td>bar</td><td>baz</td></tr><tr><td>bar</td><td></td></tr></tbody></table>
 <p>bar</p>
 ";
 
 
-			Assert.AreEqual(expected, html);
+            Assert.AreEqual(expected, html);
         }
 
-		[TestMethod]
-		public void Example194()
-		{
-			var markdown = @"| abc | def |
+        [TestMethod]
+        public void Example194()
+        {
+            var markdown = @"| abc | def |
 | --- |
 | bar |";
 
-			var ast = CommonMarkConverter.Parse(markdown, ReadSettings);
+            var ast = CommonMarkConverter.Parse(markdown, ReadSettings);
 
-			string html;
-			using (var str = new StringWriter())
-			{
-				CommonMarkConverter.ProcessStage3(ast, str, WriteSettings);
-				html = str.ToString();
-			}
-			Assert.AreEqual(@"<p>| abc | def |
+            string html;
+            using (var str = new StringWriter())
+            {
+                CommonMarkConverter.ProcessStage3(ast, str, WriteSettings);
+                html = str.ToString();
+            }
+            Assert.AreEqual(@"<p>| abc | def |
 | --- |
 | bar |</p>
 ", html);
-		}
+        }
 
-		[TestMethod]
+        [TestMethod]
         public void Example195()
         {
             var markdown = @"| abc | def |

@@ -77,36 +77,36 @@ namespace CommonMark.Parser
             }
         }
 
-		/// <summary>
-		/// Break out of all containing lists
-		/// </summary>
-		private static void BreakOutOfLists(ref Block blockRef, LineInfo line, CommonMarkSettings settings)
-		{
-			Block container = blockRef;
-			Block b = container.Top;
+        /// <summary>
+        /// Break out of all containing lists
+        /// </summary>
+        private static void BreakOutOfLists(ref Block blockRef, LineInfo line, CommonMarkSettings settings)
+        {
+            Block container = blockRef;
+            Block b = container.Top;
 
-			// find first containing list:
-			while (b != null && b.Tag != BlockTag.List)
-				b = b.LastChild;
+            // find first containing list:
+            while (b != null && b.Tag != BlockTag.List)
+                b = b.LastChild;
 
-			if (b != null)
-			{
-				while (container != null && container != b)
-				{
-					Finalize(container, line, settings);
-					container = container.Parent;
-				}
+            if (b != null)
+            {
+                while (container != null && container != b)
+                {
+                    Finalize(container, line, settings);
+                    container = container.Parent;
+                }
 
-				Finalize(b, line, settings);
-				blockRef = b.Parent;
-			}
-		}
+                Finalize(b, line, settings);
+                blockRef = b.Parent;
+            }
+        }
 
-		public static void Finalize(Block b, LineInfo line, CommonMarkSettings settings)
-		{
-			// don't do anything if the block is already closed
-			if (!b.IsOpen)
-				return;
+        public static void Finalize(Block b, LineInfo line, CommonMarkSettings settings)
+        {
+            // don't do anything if the block is already closed
+            if (!b.IsOpen)
+                return;
 
             b.IsOpen = false;
 
@@ -133,16 +133,16 @@ namespace CommonMark.Parser
             {
                 case BlockTag.Paragraph:
                     var sc = b.StringContent;
-					if (TableMethods.TryMakeTable(b, line, settings))
-						break;
+                    if (TableMethods.TryMakeTable(b, line, settings))
+                        break;
                     if (!sc.StartsWith('['))
                         break;
 
                     var subj = new Subject(b.Top.Document);
                     sc.FillSubject(subj);
                     var origPos = subj.Position;
-                    while (subj.Position < subj.Buffer.Length 
-                        && subj.Buffer[subj.Position] == '[' 
+                    while (subj.Position < subj.Buffer.Length
+                        && subj.Buffer[subj.Position] == '['
                         && 0 != InlineMethods.ParseReference(subj))
                     {
                     }
@@ -211,13 +211,13 @@ namespace CommonMark.Parser
         /// Adds a new block as child of another. Return the child.
         /// </summary>
         /// <remarks>Original: add_child</remarks>
-		public static Block CreateChildBlock(Block parent, LineInfo line, CommonMarkSettings settings, BlockTag blockType, int startColumn)
+        public static Block CreateChildBlock(Block parent, LineInfo line, CommonMarkSettings settings, BlockTag blockType, int startColumn)
         {
             // if 'parent' isn't the kind of block that can accept this child,
             // then back up til we hit a block that can.
             while (!CanContain(parent.Tag, blockType))
             {
-				Finalize(parent, line, settings);
+                Finalize(parent, line, settings);
                 parent = parent.Parent;
             }
 
@@ -298,18 +298,18 @@ namespace CommonMark.Parser
             while (block != null)
             {
                 var tag = block.Tag;
-				if (tag == BlockTag.Paragraph || tag == BlockTag.AtxHeading || tag == BlockTag.SetextHeading || tag == BlockTag.TableCell)
+                if (tag == BlockTag.Paragraph || tag == BlockTag.AtxHeading || tag == BlockTag.SetextHeading || tag == BlockTag.TableCell)
                 {
                     sc = block.StringContent;
                     if (sc != null)
                     {
                         sc.FillSubject(subj);
-						if(block.Parent != null && block.Parent.ListData != null && block.Parent.ListData.ListType == ListType.TaskList)
-						{
-							// For Task list items, skip the the brackets
-							if(subj.Length > 4)
-								subj.Position = subj.Position + 3;
-						}
+                        if(block.Parent != null && block.Parent.ListData != null && block.Parent.ListData.ListType == ListType.TaskList)
+                        {
+                            // For Task list items, skip the the brackets
+                            if(subj.Length > 4)
+                                subj.Position = subj.Position + 3;
+                        }
                         delta = subj.Position;
 
                         block.InlineContent = InlineMethods.parse_inlines(subj, parsers, specialCharacters);
@@ -351,7 +351,7 @@ namespace CommonMark.Parser
         /// data with the details.  On failure, returns 0.
         /// </summary>
         /// <remarks>Original: int parse_list_marker(string ln, int pos, ref ListData dataptr)</remarks>
-		private static int ParseListMarker(string ln, int pos, bool interruptsParagraph, CommonMarkSettings settings, out ListData data)
+        private static int ParseListMarker(string ln, int pos, bool interruptsParagraph, CommonMarkSettings settings, out ListData data)
         {
             char c;
             int startpos;
@@ -371,18 +371,18 @@ namespace CommonMark.Parser
                 if (interruptsParagraph && Scanner.scan_spacechars(ln, pos + 1, ln.Length) == ln.Length - pos - 1)
                     return 0;
 
-				bool isTaskList = false;
-				if ((settings.AdditionalFeatures & CommonMarkAdditionalFeatures.GithubStyleTaskList) == 0)
-				{
-					pos++;
-					if (ln.Length > pos && ln[pos] == '[')
-						isTaskList = true;
-					pos--;
-				}
+                bool isTaskList = false;
+                if ((settings.AdditionalFeatures & CommonMarkAdditionalFeatures.GitHubStyleTaskList) == 0)
+                {
+                    pos++;
+                    if (ln.Length > pos && ln[pos] == '[')
+                        isTaskList = true;
+                    pos--;
+                }
                 data = new ListData();
                 data.BulletChar = c;
                 data.Start = 1;
-				data.ListType = isTaskList ? ListType.TaskList : ListType.Bullet;
+                data.ListType = isTaskList ? ListType.TaskList : ListType.Bullet;
             }
             else if (c >= '0' && c <= '9')
             {
@@ -392,7 +392,7 @@ namespace CommonMark.Parser
                 while (pos < len - 1)
                 {
                     c = ln[++pos];
-                    // We limit to 9 digits to avoid overflow, This also seems to be the limit for 'start' in some browsers. 
+                    // We limit to 9 digits to avoid overflow, This also seems to be the limit for 'start' in some browsers.
                     if (c >= '0' && c <= '9' && start < 100000000)
                         start = start * 10 + (c - '0');
                     else
@@ -498,7 +498,7 @@ namespace CommonMark.Parser
                 else
                 {
                     offset += 1;
-                    column += 1; // assume ascii; block starts are ascii  
+                    column += 1; // assume ascii; block starts are ascii
                     count -= 1;
                 }
             }
@@ -507,12 +507,12 @@ namespace CommonMark.Parser
         // Process one line at a time, modifying a block.
         // Returns 0 if successful.  curptr is changed to point to
         // the currently open block.
-		public static void IncorporateLine(LineInfo line, ref Block curptr, CommonMarkSettings settings)
+        public static void IncorporateLine(LineInfo line, ref Block curptr, CommonMarkSettings settings)
         {
             var ln = line.Line;
 
             Block last_matched_container;
-            
+
             // offset is the char position in the line
             var offset = 0;
 
@@ -615,7 +615,7 @@ namespace CommonMark.Parser
 
                     case BlockTag.FencedCode:
                         {
-                            // -1 means we've seen closer 
+                            // -1 means we've seen closer
                             if (container.FencedCodeData.FenceLength == -1)
                             {
                                 all_matched = false;
@@ -691,21 +691,21 @@ namespace CommonMark.Parser
                     AdvanceOffset(ln, first_nonspace + 1 - offset, false, ref offset, ref column, ref remainingSpaces);
                     AdvanceOptionalSpace(ln, ref offset, ref column, ref remainingSpaces);
 
-					container = CreateChildBlock(container, line, settings, BlockTag.BlockQuote, first_nonspace);
+                    container = CreateChildBlock(container, line, settings, BlockTag.BlockQuote, first_nonspace);
 
                 }
                 else if (!indented && curChar == '#' && 0 != (matched = Scanner.scan_atx_heading_start(ln, first_nonspace, ln.Length, out i)))
                 {
 
                     AdvanceOffset(ln, first_nonspace + matched - offset, false, ref offset, ref column, ref remainingSpaces);
-					container = CreateChildBlock(container, line, settings, BlockTag.AtxHeading, first_nonspace);
+                    container = CreateChildBlock(container, line, settings, BlockTag.AtxHeading, first_nonspace);
                     container.Heading = new HeadingData(i);
 
                 }
                 else if (!indented && (curChar == '`' || curChar == '~') && 0 != (matched = Scanner.scan_open_code_fence(ln, first_nonspace, ln.Length)))
                 {
 
-					container = CreateChildBlock(container, line, settings, BlockTag.FencedCode, first_nonspace);
+                    container = CreateChildBlock(container, line, settings, BlockTag.FencedCode, first_nonspace);
                     container.FencedCodeData = new FencedCodeData();
                     container.FencedCodeData.FenceChar = curChar;
                     container.FencedCodeData.FenceLength = matched;
@@ -714,13 +714,13 @@ namespace CommonMark.Parser
                     AdvanceOffset(ln, first_nonspace + matched - offset, false, ref offset, ref column, ref remainingSpaces);
 
                 }
-                else if (!indented && curChar == '<' && 
+                else if (!indented && curChar == '<' &&
                     (0 != (matched = (int)Scanner.scan_html_block_start(ln, first_nonspace, ln.Length))
                     || (container.Tag != BlockTag.Paragraph && 0 != (matched = (int)Scanner.scan_html_block_start_7(ln, first_nonspace, ln.Length)))
                     ))
                 {
 
-					container = CreateChildBlock(container, line, settings, BlockTag.HtmlBlock, first_nonspace);
+                    container = CreateChildBlock(container, line, settings, BlockTag.HtmlBlock, first_nonspace);
                     container.HtmlBlockType = (HtmlBlockType)matched;
                     // note, we don't adjust offset because the tag is part of the text
 
@@ -734,20 +734,20 @@ namespace CommonMark.Parser
                     AdvanceOffset(ln, ln.Length - 1 - offset, false, ref offset, ref column, ref remainingSpaces);
 
                 }
-                else if (!indented 
-                    && !(container.Tag == BlockTag.Paragraph && !all_matched) 
+                else if (!indented
+                    && !(container.Tag == BlockTag.Paragraph && !all_matched)
                     && 0 != (Scanner.scan_thematic_break(ln, first_nonspace, ln.Length)))
                 {
 
                     // it's only now that we know the line is not part of a setext heading:
-					container = CreateChildBlock(container, line, settings, BlockTag.ThematicBreak, first_nonspace);
-					Finalize(container, line, settings);
+                    container = CreateChildBlock(container, line, settings, BlockTag.ThematicBreak, first_nonspace);
+                    Finalize(container, line, settings);
                     container = container.Parent;
                     AdvanceOffset(ln, ln.Length - 1 - offset, false, ref offset, ref column, ref remainingSpaces);
 
                 }
-                else if ((!indented || container.Tag == BlockTag.List) 
-					&& 0 != (matched = ParseListMarker(ln, first_nonspace, container.Tag == BlockTag.Paragraph, settings, out data)))
+                else if ((!indented || container.Tag == BlockTag.List)
+                    && 0 != (matched = ParseListMarker(ln, first_nonspace, container.Tag == BlockTag.Paragraph, settings, out data)))
                 {
 
                     // compute padding:
@@ -791,29 +791,29 @@ namespace CommonMark.Parser
 
                     if (container.Tag != BlockTag.List || !ListsMatch(container.ListData, data))
                     {
-						container = CreateChildBlock(container, line, settings, BlockTag.List, first_nonspace);
+                        container = CreateChildBlock(container, line, settings, BlockTag.List, first_nonspace);
                         container.ListData = data;
                     }
 
-					bool taskListItemIsChecked = false;
-					if (data.ListType == ListType.TaskList)
-					{
-						int indexOfBracket = line.Line.IndexOf(']');
-						if (indexOfBracket > -1)
-						{
-							if (indexOfBracket > 0 && line.Line[indexOfBracket - 1] == 'x')
-								taskListItemIsChecked = true;
-						}
-					}
+                    bool taskListItemIsChecked = false;
+                    if (data.ListType == ListType.TaskList)
+                    {
+                        int indexOfBracket = line.Line.IndexOf(']');
+                        if (indexOfBracket > -1)
+                        {
+                            if (indexOfBracket > 0 && line.Line[indexOfBracket - 1] == 'x')
+                                taskListItemIsChecked = true;
+                        }
+                    }
                     // add the list item
-					container = CreateChildBlock(container, line, settings, BlockTag.ListItem, first_nonspace);
-					container.TaskListItemIsChecked = taskListItemIsChecked;
+                    container = CreateChildBlock(container, line, settings, BlockTag.ListItem, first_nonspace);
+                    container.TaskListItemIsChecked = taskListItemIsChecked;
                     container.ListData = data;
                 }
                 else if (indented && !maybeLazy && !blank)
                 {
                     AdvanceOffset(ln, CODE_INDENT, true, ref offset, ref column, ref remainingSpaces);
-					container = CreateChildBlock(container, line, settings, BlockTag.IndentedCode, offset);
+                    container = CreateChildBlock(container, line, settings, BlockTag.IndentedCode, offset);
                 }
                 else
                 {
@@ -877,7 +877,7 @@ namespace CommonMark.Parser
                 while (cur != last_matched_container)
                 {
 
-					Finalize(cur, line, settings);
+                    Finalize(cur, line, settings);
                     cur = cur.Parent;
 
                     if (cur == null)
@@ -897,7 +897,7 @@ namespace CommonMark.Parser
                       && curChar == container.FencedCodeData.FenceChar)
                       && (0 != Scanner.scan_close_code_fence(ln, first_nonspace, container.FencedCodeData.FenceLength, ln.Length)))
                     {
-                        // if closing fence, set fence length to -1. it will be closed when the next line is processed. 
+                        // if closing fence, set fence length to -1. it will be closed when the next line is processed.
                         container.FencedCodeData.FenceLength = -1;
                     }
                     else
@@ -913,7 +913,7 @@ namespace CommonMark.Parser
 
                     if (Scanner.scan_html_block_end(container.HtmlBlockType, ln, first_nonspace, ln.Length))
                     {
-						Finalize(container, line, settings);
+                        Finalize(container, line, settings);
                         container = container.Parent;
                     }
 
@@ -948,7 +948,7 @@ namespace CommonMark.Parser
                         p--;
 
                     AddLine(container, line, ln, first_nonspace, remainingSpaces, p - first_nonspace + 1);
-					Finalize(container, line, settings);
+                    Finalize(container, line, settings);
                     container = container.Parent;
 
                 }
@@ -962,7 +962,7 @@ namespace CommonMark.Parser
                 {
 
                     // create paragraph container for line
-					container = CreateChildBlock(container, line, settings, BlockTag.Paragraph, first_nonspace);
+                    container = CreateChildBlock(container, line, settings, BlockTag.Paragraph, first_nonspace);
                     AddLine(container, line, ln, first_nonspace, remainingSpaces);
 
                 }
@@ -977,7 +977,7 @@ namespace CommonMark.Parser
             }
         }
 
-        private static void FindFirstNonspace(string ln, int offset, int column, out int first_nonspace, 
+        private static void FindFirstNonspace(string ln, int offset, int column, out int first_nonspace,
             out int first_nonspace_column, out char curChar)
         {
             var chars_to_tab = TabSize - (column % TabSize);

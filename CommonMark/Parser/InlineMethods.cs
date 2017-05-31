@@ -33,7 +33,7 @@ namespace CommonMark.Parser
                 p[']'] = subj => HandleRightSquareBracket(subj, true);
             else
                 p[']'] = subj => HandleRightSquareBracket(subj, false);
-            
+
             p['!'] = HandleExclamation;
 
             if (strikethroughTilde)
@@ -284,7 +284,7 @@ namespace CommonMark.Parser
             charBefore = startpos == 0 ? '\n' : subj.Buffer[startpos - 1];
             subj.Position = (startpos += numdelims);
             charAfter = len == startpos ? '\n' : subj.Buffer[startpos];
-            
+
             Utilities.CheckUnicodeCategory(charBefore, out beforeIsSpace, out beforeIsPunctuation);
             Utilities.CheckUnicodeCategory(charAfter, out afterIsSpace, out afterIsPunctuation);
 
@@ -462,7 +462,7 @@ namespace CommonMark.Parser
         private static Inline HandleLeftSquareBracket(Subject subj, bool isImage)
         {
             Inline inlText;
-            
+
             if (isImage)
             {
                 inlText = new Inline("![", subj.Position - 1, subj.Position + 1);
@@ -604,7 +604,7 @@ namespace CommonMark.Parser
             subj.Position++;
 
             if (subj.Position >= subj.Length)
-                return new Inline("\\", subj.Position - 1, subj.Position); 
+                return new Inline("\\", subj.Position - 1, subj.Position);
 
             var nextChar = subj.Buffer[subj.Position];
 
@@ -618,7 +618,7 @@ namespace CommonMark.Parser
             else if (nextChar == '\n')
             {
                 subj.Position++;
-                return new Inline(InlineTag.LineBreak) 
+                return new Inline(InlineTag.LineBreak)
                 {
                     SourcePosition = subj.Position - 2,
                     SourceLastPosition = subj.Position
@@ -856,7 +856,7 @@ namespace CommonMark.Parser
             string contents;
 
             // advance past first <
-            subj.Position++;  
+            subj.Position++;
 
             // first try to match a URL autolink
             matchlen = Scanner.scan_autolink_uri(subj.Buffer, subj.Position, subj.Length);
@@ -871,7 +871,7 @@ namespace CommonMark.Parser
                 subj.Position += matchlen;
                 result.SourceLastPosition = subj.Position;
                 resultContents.SourceLastPosition = subj.Position - 1;
-                
+
                 return result;
             }
 
@@ -882,7 +882,7 @@ namespace CommonMark.Parser
                 contents = subj.Buffer.Substring(subj.Position, matchlen - 1);
                 var resultContents = ParseStringEntities(contents);
                 var result = Inline.CreateLink(resultContents, "mailto:" + contents, string.Empty);
-                
+
                 result.SourcePosition = subj.Position - 1;
                 resultContents.SourcePosition = subj.Position;
                 subj.Position += matchlen;
@@ -1014,7 +1014,11 @@ namespace CommonMark.Parser
 
             // we read until we hit a special character
             // +1 is so that any special character at the current position is ignored.
-            var endpos = subj.Buffer.IndexOfAny(specialCharacters, startpos + 1, subj.Length - startpos - 1);
+            int count = subj.Length - startpos - 1;
+
+            int endpos = -1;
+            if(count > 0 && ((startpos + 1 + count) <= subj.Buffer.Length))
+                endpos = subj.Buffer.IndexOfAny(specialCharacters, startpos + 1, count);
 
             if (endpos == -1)
                 endpos = subj.Length;
@@ -1071,10 +1075,10 @@ namespace CommonMark.Parser
         }
 
         /// <summary>
-        /// Parses the contents of [..] for a reference label. Only used for parsing 
-        /// reference definition labels for use with the reference dictionary because 
+        /// Parses the contents of [..] for a reference label. Only used for parsing
+        /// reference definition labels for use with the reference dictionary because
         /// it does not properly parse nested inlines.
-        /// 
+        ///
         /// Assumes the source starts with '[' character.
         /// Returns null and does not advance if no matching ] is found.
         /// Note the precedence:  code backticks have precedence over label bracket

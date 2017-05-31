@@ -429,7 +429,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //       - foo
-            //     
+            //
             //     →bar
             //
             // Should be rendered as:
@@ -454,7 +454,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     - foo
-            //     
+            //
             //     →→bar
             //
             // Should be rendered as:
@@ -906,7 +906,7 @@ namespace CommonMark.Tests.Specification
             // Section: Leaf blocks - Thematic breaks
             //
             // The following CommonMark:
-            //     - - - -    
+            //     - - - -
             //
             // Should be rendered as:
             //     <hr />
@@ -926,9 +926,9 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     _ _ _ _ a
-            //     
+            //
             //     a------
-            //     
+            //
             //     ---a---
             //
             // Should be rendered as:
@@ -1168,7 +1168,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     #5 bolt
-            //     
+            //
             //     #hashtag
             //
             // Should be rendered as:
@@ -1227,7 +1227,7 @@ namespace CommonMark.Tests.Specification
             // Section: Leaf blocks - ATX headings
             //
             // The following CommonMark:
-            //     #                  foo                     
+            //     #                  foo
             //
             // Should be rendered as:
             //     <h1>foo</h1>
@@ -1351,7 +1351,7 @@ namespace CommonMark.Tests.Specification
             // Section: Leaf blocks - ATX headings
             //
             // The following CommonMark:
-            //     ### foo ###     
+            //     ### foo ###
             //
             // Should be rendered as:
             //     <h3>foo</h3>
@@ -1480,7 +1480,7 @@ namespace CommonMark.Tests.Specification
             // Section: Leaf blocks - ATX headings
             //
             // The following CommonMark:
-            //     ## 
+            //     ##
             //     #
             //     ### ###
             //
@@ -1535,7 +1535,7 @@ namespace CommonMark.Tests.Specification
             // The following CommonMark:
             //     Foo *bar*
             //     =========
-            //     
+            //
             //     Foo *bar*
             //     ---------
             //
@@ -1581,7 +1581,7 @@ namespace CommonMark.Tests.Specification
             // The following CommonMark:
             //     Foo
             //     -------------------------
-            //     
+            //
             //     Foo
             //     =
             //
@@ -1606,10 +1606,10 @@ namespace CommonMark.Tests.Specification
             // The following CommonMark:
             //        Foo
             //     ---
-            //     
+            //
             //       Foo
             //     -----
-            //     
+            //
             //       Foo
             //       ===
             //
@@ -1634,14 +1634,14 @@ namespace CommonMark.Tests.Specification
             // The following CommonMark:
             //         Foo
             //         ---
-            //     
+            //
             //         Foo
             //     ---
             //
             // Should be rendered as:
             //     <pre><code>Foo
             //     ---
-            //     
+            //
             //     Foo
             //     </code></pre>
             //     <hr />
@@ -1662,7 +1662,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     Foo
-            //        ----      
+            //        ----
             //
             // Should be rendered as:
             //     <h2>Foo</h2>
@@ -1704,7 +1704,7 @@ namespace CommonMark.Tests.Specification
             // The following CommonMark:
             //     Foo
             //     = =
-            //     
+            //
             //     Foo
             //     --- -
             //
@@ -1728,7 +1728,7 @@ namespace CommonMark.Tests.Specification
             // Section: Leaf blocks - Setext headings
             //
             // The following CommonMark:
-            //     Foo  
+            //     Foo
             //     -----
             //
             // Should be rendered as:
@@ -1772,7 +1772,7 @@ namespace CommonMark.Tests.Specification
             //     `Foo
             //     ----
             //     `
-            //     
+            //
             //     <a title="a lot
             //     ---
             //     of dashes"/>
@@ -2069,7 +2069,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     Foo
-            //     
+            //
             //     bar
             //     ---
             //     baz
@@ -2096,9 +2096,9 @@ namespace CommonMark.Tests.Specification
             // The following CommonMark:
             //     Foo
             //     bar
-            //     
+            //
             //     ---
-            //     
+            //
             //     baz
             //
             // Should be rendered as:
@@ -2210,7 +2210,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //       - foo
-            //     
+            //
             //         bar
             //
             // Should be rendered as:
@@ -2235,7 +2235,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     1.  foo
-            //     
+            //
             //         - bar
             //
             // Should be rendered as:
@@ -2265,13 +2265,13 @@ namespace CommonMark.Tests.Specification
             // The following CommonMark:
             //         <a/>
             //         *hi*
-            //     
+            //
             //         - one
             //
             // Should be rendered as:
             //     <pre><code>&lt;a/&gt;
             //     *hi*
-            //     
+            //
             //     - one
             //     </code></pre>
 
@@ -2290,20 +2290,20 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //         chunk1
-            //     
+            //
             //         chunk2
-            //       
-            //      
-            //      
+            //
+            //
+            //
             //         chunk3
             //
             // Should be rendered as:
             //     <pre><code>chunk1
-            //     
+            //
             //     chunk2
-            //     
-            //     
-            //     
+            //
+            //
+            //
             //     chunk3
             //     </code></pre>
 
@@ -2323,12 +2323,12 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //         chunk1
-            //           
+            //
             //           chunk2
             //
             // Should be rendered as:
             //     <pre><code>chunk1
-            //       
+            //
             //       chunk2
             //     </code></pre>
 
@@ -2349,7 +2349,7 @@ namespace CommonMark.Tests.Specification
             // The following CommonMark:
             //     Foo
             //         bar
-            //     
+            //
             //
             // Should be rendered as:
             //     <p>Foo
@@ -2447,10 +2447,10 @@ namespace CommonMark.Tests.Specification
             // Section: Leaf blocks - Indented code blocks
             //
             // The following CommonMark:
-            //         
+            //
             //         foo
-            //         
-            //     
+            //
+            //
             //
             // Should be rendered as:
             //     <pre><code>foo
@@ -2470,10 +2470,10 @@ namespace CommonMark.Tests.Specification
             // Section: Leaf blocks - Indented code blocks
             //
             // The following CommonMark:
-            //         foo  
+            //         foo
             //
             // Should be rendered as:
-            //     <pre><code>foo  
+            //     <pre><code>foo
             //     </code></pre>
 
             Helpers.Log("Example {0}" + Environment.NewLine + "Section: {0}" + Environment.NewLine, 87, "Leaf blocks - Indented code blocks");
@@ -2697,7 +2697,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     `````
-            //     
+            //
             //     ```
             //     aaa
             //
@@ -2722,7 +2722,7 @@ namespace CommonMark.Tests.Specification
             // The following CommonMark:
             //     > ```
             //     > aaa
-            //     
+            //
             //     bbb
             //
             // Should be rendered as:
@@ -2747,13 +2747,13 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     ```
-            //     
-            //       
+            //
+            //
             //     ```
             //
             // Should be rendered as:
             //     <pre><code>
-            //       
+            //
             //     </code></pre>
 
             Helpers.Log("Example {0}" + Environment.NewLine + "Section: {0}" + Environment.NewLine, 97, "Leaf blocks - Fenced code blocks");
@@ -3240,7 +3240,7 @@ namespace CommonMark.Tests.Specification
             //         </td>
             //       </tr>
             //     </table>
-            //     
+            //
             //     okay.
             //
             // Should be rendered as:
@@ -3311,9 +3311,9 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     <DIV CLASS="foo">
-            //     
+            //
             //     *Markdown*
-            //     
+            //
             //     </DIV>
             //
             // Should be rendered as:
@@ -3383,7 +3383,7 @@ namespace CommonMark.Tests.Specification
             // The following CommonMark:
             //     <div>
             //     *foo*
-            //     
+            //
             //     *bar*
             //
             // Should be rendered as:
@@ -3660,9 +3660,9 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     <del>
-            //     
+            //
             //     *foo*
-            //     
+            //
             //     </del>
             //
             // Should be rendered as:
@@ -3715,7 +3715,7 @@ namespace CommonMark.Tests.Specification
             // The following CommonMark:
             //     <pre language="haskell"><code>
             //     import Text.HTML.TagSoup
-            //     
+            //
             //     main :: IO ()
             //     main = print $ parseTags tags
             //     </code></pre>
@@ -3724,7 +3724,7 @@ namespace CommonMark.Tests.Specification
             // Should be rendered as:
             //     <pre language="haskell"><code>
             //     import Text.HTML.TagSoup
-            //     
+            //
             //     main :: IO ()
             //     main = print $ parseTags tags
             //     </code></pre>
@@ -3746,7 +3746,7 @@ namespace CommonMark.Tests.Specification
             // The following CommonMark:
             //     <script type="text/javascript">
             //     // JavaScript example
-            //     
+            //
             //     document.getElementById("demo").innerHTML = "Hello JavaScript!";
             //     </script>
             //     okay
@@ -3754,7 +3754,7 @@ namespace CommonMark.Tests.Specification
             // Should be rendered as:
             //     <script type="text/javascript">
             //     // JavaScript example
-            //     
+            //
             //     document.getElementById("demo").innerHTML = "Hello JavaScript!";
             //     </script>
             //     <p>okay</p>
@@ -3776,7 +3776,7 @@ namespace CommonMark.Tests.Specification
             //     <style
             //       type="text/css">
             //     h1 {color:red;}
-            //     
+            //
             //     p {color:blue;}
             //     </style>
             //     okay
@@ -3785,7 +3785,7 @@ namespace CommonMark.Tests.Specification
             //     <style
             //       type="text/css">
             //     h1 {color:red;}
-            //     
+            //
             //     p {color:blue;}
             //     </style>
             //     <p>okay</p>
@@ -3808,13 +3808,13 @@ namespace CommonMark.Tests.Specification
             // The following CommonMark:
             //     <style
             //       type="text/css">
-            //     
+            //
             //     foo
             //
             // Should be rendered as:
             //     <style
             //       type="text/css">
-            //     
+            //
             //     foo
 
             Helpers.Log("Example {0}" + Environment.NewLine + "Section: {0}" + Environment.NewLine, 138, "Leaf blocks - HTML blocks");
@@ -3832,7 +3832,7 @@ namespace CommonMark.Tests.Specification
             // The following CommonMark:
             //     > <div>
             //     > foo
-            //     
+            //
             //     bar
             //
             // Should be rendered as:
@@ -3946,14 +3946,14 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     <!-- Foo
-            //     
+            //
             //     bar
             //        baz -->
             //     okay
             //
             // Should be rendered as:
             //     <!-- Foo
-            //     
+            //
             //     bar
             //        baz -->
             //     <p>okay</p>
@@ -3973,17 +3973,17 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     <?php
-            //     
+            //
             //       echo '>';
-            //     
+            //
             //     ?>
             //     okay
             //
             // Should be rendered as:
             //     <?php
-            //     
+            //
             //       echo '>';
-            //     
+            //
             //     ?>
             //     <p>okay</p>
 
@@ -4025,9 +4025,9 @@ namespace CommonMark.Tests.Specification
             //     {
             //       if (a < b && a < 0) then {
             //         return 1;
-            //     
+            //
             //       } else {
-            //     
+            //
             //         return 0;
             //       }
             //     }
@@ -4040,9 +4040,9 @@ namespace CommonMark.Tests.Specification
             //     {
             //       if (a < b && a < 0) then {
             //         return 1;
-            //     
+            //
             //       } else {
-            //     
+            //
             //         return 0;
             //       }
             //     }
@@ -4064,7 +4064,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //       <!-- foo -->
-            //     
+            //
             //         <!-- foo -->
             //
             // Should be rendered as:
@@ -4086,7 +4086,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //       <div>
-            //     
+            //
             //         <div>
             //
             // Should be rendered as:
@@ -4212,9 +4212,9 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     <div>
-            //     
+            //
             //     *Emphasized* text.
-            //     
+            //
             //     </div>
             //
             // Should be rendered as:
@@ -4268,15 +4268,15 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     <table>
-            //     
+            //
             //     <tr>
-            //     
+            //
             //     <td>
             //     Hi
             //     </td>
-            //     
+            //
             //     </tr>
-            //     
+            //
             //     </table>
             //
             // Should be rendered as:
@@ -4305,15 +4305,15 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     <table>
-            //     
+            //
             //       <tr>
-            //     
+            //
             //         <td>
             //           Hi
             //         </td>
-            //     
+            //
             //       </tr>
-            //     
+            //
             //     </table>
             //
             // Should be rendered as:
@@ -4363,7 +4363,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     [foo]: /url "title"
-            //     
+            //
             //     [foo]
             //
             // Should be rendered as:
@@ -4382,10 +4382,10 @@ namespace CommonMark.Tests.Specification
             // Section: Leaf blocks - Link reference definitions
             //
             // The following CommonMark:
-            //        [foo]: 
-            //           /url  
-            //                'the title'  
-            //     
+            //        [foo]:
+            //           /url
+            //                'the title'
+            //
             //     [foo]
             //
             // Should be rendered as:
@@ -4405,7 +4405,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     [Foo*bar\]]:my_(url) 'title (with parens)'
-            //     
+            //
             //     [Foo*bar\]]
             //
             // Should be rendered as:
@@ -4427,7 +4427,7 @@ namespace CommonMark.Tests.Specification
             //     [Foo bar]:
             //     <my%20url>
             //     'title'
-            //     
+            //
             //     [Foo bar]
             //
             // Should be rendered as:
@@ -4452,7 +4452,7 @@ namespace CommonMark.Tests.Specification
             //     line1
             //     line2
             //     '
-            //     
+            //
             //     [foo]
             //
             // Should be rendered as:
@@ -4477,9 +4477,9 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     [foo]: /url 'title
-            //     
+            //
             //     with blank line'
-            //     
+            //
             //     [foo]
             //
             // Should be rendered as:
@@ -4503,7 +4503,7 @@ namespace CommonMark.Tests.Specification
             // The following CommonMark:
             //     [foo]:
             //     /url
-            //     
+            //
             //     [foo]
             //
             // Should be rendered as:
@@ -4524,7 +4524,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     [foo]:
-            //     
+            //
             //     [foo]
             //
             // Should be rendered as:
@@ -4547,7 +4547,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     [foo]: /url\bar\*baz "foo\"bar\baz"
-            //     
+            //
             //     [foo]
             //
             // Should be rendered as:
@@ -4568,7 +4568,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     [foo]
-            //     
+            //
             //     [foo]: url
             //
             // Should be rendered as:
@@ -4590,7 +4590,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     [foo]
-            //     
+            //
             //     [foo]: first
             //     [foo]: second
             //
@@ -4613,7 +4613,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     [FOO]: /url
-            //     
+            //
             //     [Foo]
             //
             // Should be rendered as:
@@ -4633,7 +4633,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     [ΑΓΩ]: /φου
-            //     
+            //
             //     [αγω]
             //
             // Should be rendered as:
@@ -4657,7 +4657,7 @@ namespace CommonMark.Tests.Specification
             //     [foo]: /url
             //
             // Should be rendered as:
-            //     
+            //
 
             Helpers.Log("Example {0}" + Environment.NewLine + "Section: {0}" + Environment.NewLine, 170, "Leaf blocks - Link reference definitions");
 			Helpers.ExecuteTest("[foo]: /url", "");
@@ -4737,7 +4737,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //         [foo]: /url "title"
-            //     
+            //
             //     [foo]
             //
             // Should be rendered as:
@@ -4763,7 +4763,7 @@ namespace CommonMark.Tests.Specification
             //     ```
             //     [foo]: /url
             //     ```
-            //     
+            //
             //     [foo]
             //
             // Should be rendered as:
@@ -4787,7 +4787,7 @@ namespace CommonMark.Tests.Specification
             // The following CommonMark:
             //     Foo
             //     [bar]: /baz
-            //     
+            //
             //     [bar]
             //
             // Should be rendered as:
@@ -4839,7 +4839,7 @@ namespace CommonMark.Tests.Specification
             //     [bar]: /bar-url
             //       "bar"
             //     [baz]: /baz-url
-            //     
+            //
             //     [foo],
             //     [bar],
             //     [baz]
@@ -4867,7 +4867,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     [foo]
-            //     
+            //
             //     > [foo]: /url
             //
             // Should be rendered as:
@@ -4899,7 +4899,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     aaa
-            //     
+            //
             //     bbb
             //
             // Should be rendered as:
@@ -4922,7 +4922,7 @@ namespace CommonMark.Tests.Specification
             // The following CommonMark:
             //     aaa
             //     bbb
-            //     
+            //
             //     ccc
             //     ddd
             //
@@ -4947,8 +4947,8 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     aaa
-            //     
-            //     
+            //
+            //
             //     bbb
             //
             // Should be rendered as:
@@ -5059,8 +5059,8 @@ namespace CommonMark.Tests.Specification
             // Section: Leaf blocks - Paragraphs
             //
             // The following CommonMark:
-            //     aaa     
-            //     bbb     
+            //     aaa
+            //     bbb
             //
             // Should be rendered as:
             //     <p>aaa<br />
@@ -5086,14 +5086,14 @@ namespace CommonMark.Tests.Specification
             // Section: Leaf blocks - Blank lines
             //
             // The following CommonMark:
-            //       
-            //     
+            //
+            //
             //     aaa
-            //       
-            //     
+            //
+            //
             //     # aaa
-            //     
-            //       
+            //
+            //
             //
             // Should be rendered as:
             //     <p>aaa</p>
@@ -5483,8 +5483,8 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     >
-            //     >  
-            //     > 
+            //     >
+            //     >
             //
             // Should be rendered as:
             //     <blockquote>
@@ -5506,7 +5506,7 @@ namespace CommonMark.Tests.Specification
             // The following CommonMark:
             //     >
             //     > foo
-            //     >  
+            //     >
             //
             // Should be rendered as:
             //     <blockquote>
@@ -5528,7 +5528,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     > foo
-            //     
+            //
             //     > bar
             //
             // Should be rendered as:
@@ -5681,7 +5681,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     > bar
-            //     
+            //
             //     baz
             //
             // Should be rendered as:
@@ -5788,7 +5788,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     >     code
-            //     
+            //
             //     >    not code
             //
             // Should be rendered as:
@@ -5849,9 +5849,9 @@ namespace CommonMark.Tests.Specification
             // The following CommonMark:
             //     A paragraph
             //     with two lines.
-            //     
+            //
             //         indented code
-            //     
+            //
             //     > A block quote.
             //
             // Should be rendered as:
@@ -5881,9 +5881,9 @@ namespace CommonMark.Tests.Specification
             // The following CommonMark:
             //     1.  A paragraph
             //         with two lines.
-            //     
+            //
             //             indented code
-            //     
+            //
             //         > A block quote.
             //
             // Should be rendered as:
@@ -5923,7 +5923,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     - one
-            //     
+            //
             //      two
             //
             // Should be rendered as:
@@ -5946,7 +5946,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     - one
-            //     
+            //
             //       two
             //
             // Should be rendered as:
@@ -5971,7 +5971,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //      -    one
-            //     
+            //
             //          two
             //
             // Should be rendered as:
@@ -5995,7 +5995,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //      -    one
-            //     
+            //
             //           two
             //
             // Should be rendered as:
@@ -6093,7 +6093,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     -one
-            //     
+            //
             //     2.two
             //
             // Should be rendered as:
@@ -6116,8 +6116,8 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     - foo
-            //     
-            //     
+            //
+            //
             //       bar
             //
             // Should be rendered as:
@@ -6143,13 +6143,13 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     1.  foo
-            //     
+            //
             //         ```
             //         bar
             //         ```
-            //     
+            //
             //         baz
-            //     
+            //
             //         > bam
             //
             // Should be rendered as:
@@ -6181,10 +6181,10 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     - Foo
-            //     
+            //
             //           bar
-            //     
-            //     
+            //
+            //
             //           baz
             //
             // Should be rendered as:
@@ -6192,8 +6192,8 @@ namespace CommonMark.Tests.Specification
             //     <li>
             //     <p>Foo</p>
             //     <pre><code>bar
-            //     
-            //     
+            //
+            //
             //     baz
             //     </code></pre>
             //     </li>
@@ -6327,7 +6327,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     - foo
-            //     
+            //
             //           bar
             //
             // Should be rendered as:
@@ -6354,7 +6354,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //       10.  foo
-            //     
+            //
             //                bar
             //
             // Should be rendered as:
@@ -6383,9 +6383,9 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //         indented code
-            //     
+            //
             //     paragraph
-            //     
+            //
             //         more code
             //
             // Should be rendered as:
@@ -6409,9 +6409,9 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     1.     indented code
-            //     
+            //
             //        paragraph
-            //     
+            //
             //            more code
             //
             // Should be rendered as:
@@ -6441,9 +6441,9 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     1.      indented code
-            //     
+            //
             //        paragraph
-            //     
+            //
             //            more code
             //
             // Should be rendered as:
@@ -6478,7 +6478,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //        foo
-            //     
+            //
             //     bar
             //
             // Should be rendered as:
@@ -6499,7 +6499,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     -    foo
-            //     
+            //
             //       bar
             //
             // Should be rendered as:
@@ -6526,7 +6526,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     -  foo
-            //     
+            //
             //        bar
             //
             // Should be rendered as:
@@ -6600,7 +6600,7 @@ namespace CommonMark.Tests.Specification
             // Section: Container blocks - List items
             //
             // The following CommonMark:
-            //     -   
+            //     -
             //       foo
             //
             // Should be rendered as:
@@ -6625,7 +6625,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     -
-            //     
+            //
             //       foo
             //
             // Should be rendered as:
@@ -6674,7 +6674,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     - foo
-            //     -   
+            //     -
             //     - bar
             //
             // Should be rendered as:
@@ -6746,7 +6746,7 @@ namespace CommonMark.Tests.Specification
             // The following CommonMark:
             //     foo
             //     *
-            //     
+            //
             //     foo
             //     1.
             //
@@ -6778,9 +6778,9 @@ namespace CommonMark.Tests.Specification
             // The following CommonMark:
             //      1.  A paragraph
             //          with two lines.
-            //     
+            //
             //              indented code
-            //     
+            //
             //          > A block quote.
             //
             // Should be rendered as:
@@ -6812,9 +6812,9 @@ namespace CommonMark.Tests.Specification
             // The following CommonMark:
             //       1.  A paragraph
             //           with two lines.
-            //     
+            //
             //               indented code
-            //     
+            //
             //           > A block quote.
             //
             // Should be rendered as:
@@ -6846,9 +6846,9 @@ namespace CommonMark.Tests.Specification
             // The following CommonMark:
             //        1.  A paragraph
             //            with two lines.
-            //     
+            //
             //                indented code
-            //     
+            //
             //            > A block quote.
             //
             // Should be rendered as:
@@ -6880,17 +6880,17 @@ namespace CommonMark.Tests.Specification
             // The following CommonMark:
             //         1.  A paragraph
             //             with two lines.
-            //     
+            //
             //                 indented code
-            //     
+            //
             //             > A block quote.
             //
             // Should be rendered as:
             //     <pre><code>1.  A paragraph
             //         with two lines.
-            //     
+            //
             //             indented code
-            //     
+            //
             //         &gt; A block quote.
             //     </code></pre>
 
@@ -6919,9 +6919,9 @@ namespace CommonMark.Tests.Specification
             // The following CommonMark:
             //       1.  A paragraph
             //     with two lines.
-            //     
+            //
             //               indented code
-            //     
+            //
             //           > A block quote.
             //
             // Should be rendered as:
@@ -7641,10 +7641,10 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     - foo
-            //     
+            //
             //     - bar
-            //     
-            //     
+            //
+            //
             //     - baz
             //
             // Should be rendered as:
@@ -7676,8 +7676,8 @@ namespace CommonMark.Tests.Specification
             //     - foo
             //       - bar
             //         - baz
-            //     
-            //     
+            //
+            //
             //           bim
             //
             // Should be rendered as:
@@ -7715,9 +7715,9 @@ namespace CommonMark.Tests.Specification
             // The following CommonMark:
             //     - foo
             //     - bar
-            //     
+            //
             //     <!-- -->
-            //     
+            //
             //     - baz
             //     - bim
             //
@@ -7746,13 +7746,13 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     -   foo
-            //     
+            //
             //         notcode
-            //     
+            //
             //     -   foo
-            //     
+            //
             //     <!-- -->
-            //     
+            //
             //         code
             //
             // Should be rendered as:
@@ -7823,9 +7823,9 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     1. a
-            //     
+            //
             //       2. b
-            //     
+            //
             //         3. c
             //
             // Should be rendered as:
@@ -7858,7 +7858,7 @@ namespace CommonMark.Tests.Specification
             // The following CommonMark:
             //     - a
             //     - b
-            //     
+            //
             //     - c
             //
             // Should be rendered as:
@@ -7890,7 +7890,7 @@ namespace CommonMark.Tests.Specification
             // The following CommonMark:
             //     * a
             //     *
-            //     
+            //
             //     * c
             //
             // Should be rendered as:
@@ -7922,7 +7922,7 @@ namespace CommonMark.Tests.Specification
             // The following CommonMark:
             //     - a
             //     - b
-            //     
+            //
             //       c
             //     - d
             //
@@ -7955,7 +7955,7 @@ namespace CommonMark.Tests.Specification
             // The following CommonMark:
             //     - a
             //     - b
-            //     
+            //
             //       [ref]: /url
             //     - d
             //
@@ -7989,8 +7989,8 @@ namespace CommonMark.Tests.Specification
             //     - a
             //     - ```
             //       b
-            //     
-            //     
+            //
+            //
             //       ```
             //     - c
             //
@@ -7999,8 +7999,8 @@ namespace CommonMark.Tests.Specification
             //     <li>a</li>
             //     <li>
             //     <pre><code>b
-            //     
-            //     
+            //
+            //
             //     </code></pre>
             //     </li>
             //     <li>c</li>
@@ -8024,7 +8024,7 @@ namespace CommonMark.Tests.Specification
             // The following CommonMark:
             //     - a
             //       - b
-            //     
+            //
             //         c
             //     - d
             //
@@ -8169,7 +8169,7 @@ namespace CommonMark.Tests.Specification
             //     1. ```
             //        foo
             //        ```
-            //     
+            //
             //        bar
             //
             // Should be rendered as:
@@ -8197,7 +8197,7 @@ namespace CommonMark.Tests.Specification
             // The following CommonMark:
             //     * foo
             //       * bar
-            //     
+            //
             //       baz
             //
             // Should be rendered as:
@@ -8227,7 +8227,7 @@ namespace CommonMark.Tests.Specification
             //     - a
             //       - b
             //       - c
-            //     
+            //
             //     - d
             //       - e
             //       - f
@@ -8521,7 +8521,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     [foo]
-            //     
+            //
             //     [foo]: /bar\* "ti\*tle"
             //
             // Should be rendered as:
@@ -8748,7 +8748,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     [foo]
-            //     
+            //
             //     [foo]: /f&ouml;&ouml; "f&ouml;&ouml;"
             //
             // Should be rendered as:
@@ -12162,9 +12162,9 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     [link](#fragment)
-            //     
+            //
             //     [link](http://example.com#fragment)
-            //     
+            //
             //     [link](http://example.com?foo=3#frag)
             //
             // Should be rendered as:
@@ -12716,7 +12716,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     [foo][bar]
-            //     
+            //
             //     [bar]: /url "title"
             //
             // Should be rendered as:
@@ -12741,7 +12741,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     [link [foo [bar]]][ref]
-            //     
+            //
             //     [ref]: /uri
             //
             // Should be rendered as:
@@ -12761,7 +12761,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     [link \[bar][ref]
-            //     
+            //
             //     [ref]: /uri
             //
             // Should be rendered as:
@@ -12782,7 +12782,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     [link *foo **bar** `#`*][ref]
-            //     
+            //
             //     [ref]: /uri
             //
             // Should be rendered as:
@@ -12802,7 +12802,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     [![moon](moon.jpg)][ref]
-            //     
+            //
             //     [ref]: /uri
             //
             // Should be rendered as:
@@ -12823,7 +12823,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     [foo [bar](/uri)][ref]
-            //     
+            //
             //     [ref]: /uri
             //
             // Should be rendered as:
@@ -12843,7 +12843,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     [foo *bar [baz][ref]*][ref]
-            //     
+            //
             //     [ref]: /uri
             //
             // Should be rendered as:
@@ -12868,7 +12868,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     *[foo*][ref]
-            //     
+            //
             //     [ref]: /uri
             //
             // Should be rendered as:
@@ -12888,7 +12888,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     [foo *bar][ref]
-            //     
+            //
             //     [ref]: /uri
             //
             // Should be rendered as:
@@ -12910,7 +12910,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     [foo <bar attr="][ref]">
-            //     
+            //
             //     [ref]: /uri
             //
             // Should be rendered as:
@@ -12930,7 +12930,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     [foo`][ref]`
-            //     
+            //
             //     [ref]: /uri
             //
             // Should be rendered as:
@@ -12950,7 +12950,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     [foo<http://example.com/?search=][ref]>
-            //     
+            //
             //     [ref]: /uri
             //
             // Should be rendered as:
@@ -12971,7 +12971,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     [foo][BaR]
-            //     
+            //
             //     [bar]: /url "title"
             //
             // Should be rendered as:
@@ -12992,7 +12992,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     [Толпой][Толпой] is a Russian word.
-            //     
+            //
             //     [ТОЛПОЙ]: /url
             //
             // Should be rendered as:
@@ -13015,7 +13015,7 @@ namespace CommonMark.Tests.Specification
             // The following CommonMark:
             //     [Foo
             //       bar]: /url
-            //     
+            //
             //     [Baz][Foo bar]
             //
             // Should be rendered as:
@@ -13037,7 +13037,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     [foo] [bar]
-            //     
+            //
             //     [bar]: /url "title"
             //
             // Should be rendered as:
@@ -13058,7 +13058,7 @@ namespace CommonMark.Tests.Specification
             // The following CommonMark:
             //     [foo]
             //     [bar]
-            //     
+            //
             //     [bar]: /url "title"
             //
             // Should be rendered as:
@@ -13108,9 +13108,9 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     [foo]: /url1
-            //     
+            //
             //     [foo]: /url2
-            //     
+            //
             //     [bar][foo]
             //
             // Should be rendered as:
@@ -13133,7 +13133,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     [bar][foo\!]
-            //     
+            //
             //     [foo!]: /url
             //
             // Should be rendered as:
@@ -13155,7 +13155,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     [foo][ref[]
-            //     
+            //
             //     [ref[]: /uri
             //
             // Should be rendered as:
@@ -13176,7 +13176,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     [foo][ref[bar]]
-            //     
+            //
             //     [ref[bar]]: /uri
             //
             // Should be rendered as:
@@ -13197,7 +13197,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     [[[foo]]]
-            //     
+            //
             //     [[[foo]]]: /url
             //
             // Should be rendered as:
@@ -13218,7 +13218,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     [foo][ref\[]
-            //     
+            //
             //     [ref\[]: /uri
             //
             // Should be rendered as:
@@ -13239,7 +13239,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     [bar\\]: /uri
-            //     
+            //
             //     [bar\\]
             //
             // Should be rendered as:
@@ -13260,7 +13260,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     []
-            //     
+            //
             //     []: /uri
             //
             // Should be rendered as:
@@ -13282,7 +13282,7 @@ namespace CommonMark.Tests.Specification
             // The following CommonMark:
             //     [
             //      ]
-            //     
+            //
             //     [
             //      ]: /uri
             //
@@ -13314,7 +13314,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     [foo][]
-            //     
+            //
             //     [foo]: /url "title"
             //
             // Should be rendered as:
@@ -13334,7 +13334,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     [*foo* bar][]
-            //     
+            //
             //     [*foo* bar]: /url "title"
             //
             // Should be rendered as:
@@ -13355,7 +13355,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     [Foo][]
-            //     
+            //
             //     [foo]: /url "title"
             //
             // Should be rendered as:
@@ -13376,9 +13376,9 @@ namespace CommonMark.Tests.Specification
             // Section: Inlines - Links
             //
             // The following CommonMark:
-            //     [foo] 
+            //     [foo]
             //     []
-            //     
+            //
             //     [foo]: /url "title"
             //
             // Should be rendered as:
@@ -13407,7 +13407,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     [foo]
-            //     
+            //
             //     [foo]: /url "title"
             //
             // Should be rendered as:
@@ -13427,7 +13427,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     [*foo* bar]
-            //     
+            //
             //     [*foo* bar]: /url "title"
             //
             // Should be rendered as:
@@ -13447,7 +13447,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     [[*foo* bar]]
-            //     
+            //
             //     [*foo* bar]: /url "title"
             //
             // Should be rendered as:
@@ -13467,7 +13467,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     [[bar [foo]
-            //     
+            //
             //     [foo]: /url
             //
             // Should be rendered as:
@@ -13488,7 +13488,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     [Foo]
-            //     
+            //
             //     [foo]: /url "title"
             //
             // Should be rendered as:
@@ -13509,7 +13509,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     [foo] bar
-            //     
+            //
             //     [foo]: /url
             //
             // Should be rendered as:
@@ -13531,7 +13531,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     \[foo]
-            //     
+            //
             //     [foo]: /url "title"
             //
             // Should be rendered as:
@@ -13553,7 +13553,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     [foo*]: /url
-            //     
+            //
             //     *[foo*]
             //
             // Should be rendered as:
@@ -13575,7 +13575,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     [foo][bar]
-            //     
+            //
             //     [foo]: /url1
             //     [bar]: /url2
             //
@@ -13596,7 +13596,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     [foo][]
-            //     
+            //
             //     [foo]: /url1
             //
             // Should be rendered as:
@@ -13617,7 +13617,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     [foo]()
-            //     
+            //
             //     [foo]: /url1
             //
             // Should be rendered as:
@@ -13637,7 +13637,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     [foo](not a link)
-            //     
+            //
             //     [foo]: /url1
             //
             // Should be rendered as:
@@ -13659,7 +13659,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     [foo][bar][baz]
-            //     
+            //
             //     [baz]: /url
             //
             // Should be rendered as:
@@ -13681,7 +13681,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     [foo][bar][baz]
-            //     
+            //
             //     [baz]: /url1
             //     [bar]: /url2
             //
@@ -13704,7 +13704,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     [foo][bar][baz]
-            //     
+            //
             //     [baz]: /url1
             //     [foo]: /url2
             //
@@ -13754,7 +13754,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     ![foo *bar*]
-            //     
+            //
             //     [foo *bar*]: train.jpg "train & tracks"
             //
             // Should be rendered as:
@@ -13816,7 +13816,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     ![foo *bar*][]
-            //     
+            //
             //     [foo *bar*]: train.jpg "train & tracks"
             //
             // Should be rendered as:
@@ -13836,7 +13836,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     ![foo *bar*][foobar]
-            //     
+            //
             //     [FOOBAR]: train.jpg "train & tracks"
             //
             // Should be rendered as:
@@ -13929,7 +13929,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     ![foo][bar]
-            //     
+            //
             //     [bar]: /url
             //
             // Should be rendered as:
@@ -13949,7 +13949,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     ![foo][bar]
-            //     
+            //
             //     [BAR]: /url
             //
             // Should be rendered as:
@@ -13970,7 +13970,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     ![foo][]
-            //     
+            //
             //     [foo]: /url "title"
             //
             // Should be rendered as:
@@ -13990,7 +13990,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     ![*foo* bar][]
-            //     
+            //
             //     [*foo* bar]: /url "title"
             //
             // Should be rendered as:
@@ -14011,7 +14011,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     ![Foo][]
-            //     
+            //
             //     [foo]: /url "title"
             //
             // Should be rendered as:
@@ -14032,9 +14032,9 @@ namespace CommonMark.Tests.Specification
             // Section: Inlines - Images
             //
             // The following CommonMark:
-            //     ![foo] 
+            //     ![foo]
             //     []
-            //     
+            //
             //     [foo]: /url "title"
             //
             // Should be rendered as:
@@ -14056,7 +14056,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     ![foo]
-            //     
+            //
             //     [foo]: /url "title"
             //
             // Should be rendered as:
@@ -14076,7 +14076,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     ![*foo* bar]
-            //     
+            //
             //     [*foo* bar]: /url "title"
             //
             // Should be rendered as:
@@ -14097,7 +14097,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     ![[foo]]
-            //     
+            //
             //     [[foo]]: /url "title"
             //
             // Should be rendered as:
@@ -14119,7 +14119,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     ![Foo]
-            //     
+            //
             //     [foo]: /url "title"
             //
             // Should be rendered as:
@@ -14141,7 +14141,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     \!\[foo]
-            //     
+            //
             //     [foo]: /url "title"
             //
             // Should be rendered as:
@@ -14163,7 +14163,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     \![foo]
-            //     
+            //
             //     [foo]: /url "title"
             //
             // Should be rendered as:
@@ -14918,7 +14918,7 @@ namespace CommonMark.Tests.Specification
             //
             // The following CommonMark:
             //     foo <!--> foo -->
-            //     
+            //
             //     foo <!-- foo--->
             //
             // Should be rendered as:
@@ -15058,7 +15058,7 @@ namespace CommonMark.Tests.Specification
             // Section: Inlines - Hard line breaks
             //
             // The following CommonMark:
-            //     foo  
+            //     foo
             //     baz
             //
             // Should be rendered as:
@@ -15101,7 +15101,7 @@ namespace CommonMark.Tests.Specification
             // Section: Inlines - Hard line breaks
             //
             // The following CommonMark:
-            //     foo       
+            //     foo
             //     baz
             //
             // Should be rendered as:
@@ -15122,7 +15122,7 @@ namespace CommonMark.Tests.Specification
             // Section: Inlines - Hard line breaks
             //
             // The following CommonMark:
-            //     foo  
+            //     foo
             //          bar
             //
             // Should be rendered as:
@@ -15164,7 +15164,7 @@ namespace CommonMark.Tests.Specification
             // Section: Inlines - Hard line breaks
             //
             // The following CommonMark:
-            //     *foo  
+            //     *foo
             //     bar*
             //
             // Should be rendered as:
@@ -15205,7 +15205,7 @@ namespace CommonMark.Tests.Specification
             // Section: Inlines - Hard line breaks
             //
             // The following CommonMark:
-            //     `code  
+            //     `code
             //     span`
             //
             // Should be rendered as:
@@ -15244,11 +15244,11 @@ namespace CommonMark.Tests.Specification
             // Section: Inlines - Hard line breaks
             //
             // The following CommonMark:
-            //     <a href="foo  
+            //     <a href="foo
             //     bar">
             //
             // Should be rendered as:
-            //     <p><a href="foo  
+            //     <p><a href="foo
             //     bar"></p>
 
             Helpers.Log("Example {0}" + Environment.NewLine + "Section: {0}" + Environment.NewLine, 612, "Inlines - Hard line breaks");
@@ -15305,7 +15305,7 @@ namespace CommonMark.Tests.Specification
             // Section: Inlines - Hard line breaks
             //
             // The following CommonMark:
-            //     foo  
+            //     foo
             //
             // Should be rendered as:
             //     <p>foo</p>
@@ -15341,7 +15341,7 @@ namespace CommonMark.Tests.Specification
             // Section: Inlines - Hard line breaks
             //
             // The following CommonMark:
-            //     ### foo  
+            //     ### foo
             //
             // Should be rendered as:
             //     <h3>foo</h3>
@@ -15388,7 +15388,7 @@ namespace CommonMark.Tests.Specification
             // Section: Inlines - Soft line breaks
             //
             // The following CommonMark:
-            //     foo 
+            //     foo
             //      baz
             //
             // Should be rendered as:

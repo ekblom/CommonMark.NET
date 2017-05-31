@@ -78,9 +78,9 @@ namespace CommonMark.Tests
         [TestCategory("Container blocks - Task List items")]
         public void Example269()
         {
-			string test = @"- [ ] foo
+            string test = @"- [ ] foo
 - [x] bar";
-			string expected = @"<ul>
+            string expected = @"<ul>
 <li><input disabled="""" type=""checkbox"" /> foo</li>
 <li><input checked="""" disabled="""" type=""checkbox"" /> bar</li>
 </ul>";
@@ -91,11 +91,11 @@ namespace CommonMark.Tests
         [TestCategory("Container blocks - Task List items")]
         public void Example270()
         {
-			string test = @"- [x] foo
+            string test = @"- [x] foo
     - [ ] bar
     - [x] baz
 - [ ] bim";
-			string expected = @"<ul>
+            string expected = @"<ul>
 <li><input checked="""" disabled="""" type=""checkbox"" /> foo
 <ul>
 <li><input disabled="""" type=""checkbox"" /> bar</li>

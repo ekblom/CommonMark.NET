@@ -164,14 +164,14 @@ namespace CommonMark.Formatters
                         if (Settings.TrackSourcePosition) WritePositionAttribute(block);
                         Write('>');
 
-						if (block.ListData != null && block.ListData.ListType == ListType.TaskList)
-						{
-							if (!block.TaskListItemIsChecked)
-								Write("<input disabled=\"\" type=\"checkbox\" />");
-							else
-								Write("<input checked=\"\" disabled=\"\" type=\"checkbox\" />");
-						}
-					}
+                        if (block.ListData != null && block.ListData.ListType == ListType.TaskList)
+                        {
+                            if (!block.TaskListItemIsChecked)
+                                Write("<input disabled=\"\" type=\"checkbox\" />");
+                            else
+                                Write("<input checked=\"\" disabled=\"\" type=\"checkbox\" />");
+                        }
+                    }
 
                     if (isClosing)
                         WriteLine("</li>");
@@ -650,7 +650,7 @@ namespace CommonMark.Formatters
         }
 
         /// <summary>
-        /// Writes a <c>data-sourcepos="start-end"</c> attribute to the target writer. 
+        /// Writes a <c>data-sourcepos="start-end"</c> attribute to the target writer.
         /// This method should only be called if <see cref="CommonMarkSettings.TrackSourcePosition"/> is set to <see langword="true"/>.
         /// Note that the attribute is preceded (but not succeeded) by a single space.
         /// </summary>
@@ -660,7 +660,7 @@ namespace CommonMark.Formatters
         }
 
         /// <summary>
-        /// Writes a <c>data-sourcepos="start-end"</c> attribute to the target writer. 
+        /// Writes a <c>data-sourcepos="start-end"</c> attribute to the target writer.
         /// This method should only be called if <see cref="CommonMarkSettings.TrackSourcePosition"/> is set to <see langword="true"/>.
         /// Note that the attribute is preceded (but not succeeded) by a single space.
         /// </summary>

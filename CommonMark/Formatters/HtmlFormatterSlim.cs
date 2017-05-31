@@ -215,11 +215,6 @@ namespace CommonMark.Formatters
 
         static void WriteTable(Block table, HtmlTextWriter writer, CommonMarkSettings settings, Stack<InlineStackEntry> stack)
         {
-            if ((settings.AdditionalFeatures & CommonMarkAdditionalFeatures.GithubStyleTables) == 0)
-            {
-                throw new CommonMarkException("Table encountered in AST, but GithubStyleTables are not enabled");
-            }
-
             var header = table.FirstChild;
             var firstRow = table.FirstChild.NextSibling;
 
@@ -232,27 +227,22 @@ namespace CommonMark.Formatters
             var curHeaderCell = header.FirstChild;
             while (curHeaderCell != null)
             {
-				if (numHeadings >= table.TableHeaderAlignments.Length)
-					break;
+                if (numHeadings >= table.TableHeaderAlignments.Length)
+                    break;
 
                 var alignment = table.TableHeaderAlignments[numHeadings];
 
                 numHeadings++;
 
-                if (alignment == TableHeaderAlignment.None)
+                switch (alignment)
                 {
-                    writer.WriteConstant("<th>");
+                    case TableHeaderAlignment.None: writer.WriteConstant("<th>"); break;
+                    case TableHeaderAlignment.Center: writer.WriteConstant("<th align=\"center\">"); break;
+                    case TableHeaderAlignment.Left: writer.WriteConstant("<th align=\"left\">"); break;
+                    case TableHeaderAlignment.Right: writer.WriteConstant("<th align=\"right\">"); break;
+                    default: throw new CommonMarkException("Unexpected TableHeaderAlignment [" + alignment + "]");
                 }
-                else
-                {
-                    switch (alignment)
-                    {
-                        case TableHeaderAlignment.Center: writer.WriteConstant("<th align=\"center\">"); break;
-                        case TableHeaderAlignment.Left: writer.WriteConstant("<th align=\"left\">"); break;
-                        case TableHeaderAlignment.Right: writer.WriteConstant("<th align=\"right\">"); break;
-                        default: throw new CommonMarkException("Unexpected TableHeaderAlignment [" + alignment + "]");
-                    }
-                }
+
                 InlinesToHtml(writer, curHeaderCell.InlineContent, settings, stack);
                 writer.WriteConstant("</th>");
 
@@ -367,15 +357,15 @@ namespace CommonMark.Formatters
                         if (trackPositions) PrintPosition(writer, block);
                         writer.Write('>');
 
-						if (block.ListData != null && block.ListData.ListType == ListType.TaskList)
-						{
-							if(!block.TaskListItemIsChecked)
-								writer.WriteConstant("<input disabled=\"\" type=\"checkbox\" />");
-							else
-								writer.WriteConstant("<input checked=\"\" disabled=\"\" type=\"checkbox\" />");
-						}
+                        if (block.ListData != null && block.ListData.ListType == ListType.TaskList)
+                        {
+                            if (!block.TaskListItemIsChecked)
+                                writer.WriteConstant("<input disabled=\"\" type=\"checkbox\" />");
+                            else
+                                writer.WriteConstant("<input checked=\"\" disabled=\"\" type=\"checkbox\" />");
+                        }
 
-						stackLiteral = "</li>";
+                        stackLiteral = "</li>";
                         stackTight = tight;
                         visitChildren = true;
                         break;
